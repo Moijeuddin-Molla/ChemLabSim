@@ -1,4 +1,5 @@
 
+
 import React, { useState, useMemo } from 'react';
 import { InfoCard } from '../components/InfoCard';
 import { CalculatorIcon } from '../components/icons/Icons';
@@ -7,7 +8,7 @@ import { BINDING_ENERGY_CONSTANTS, ISOTOPE_DATA, BINDING_CURVE_DATA } from '../d
 // --- Chart Component ---
 
 interface BindingEnergyChartProps {
-  selectedIsotope: { A: number; bePerNucleon: number };
+  selectedIsotope: { id: string; A: number; bePerNucleon: number };
 }
 
 const BindingEnergyChart: React.FC<BindingEnergyChartProps> = ({ selectedIsotope }) => {
@@ -58,6 +59,7 @@ const BindingEnergyChart: React.FC<BindingEnergyChartProps> = ({ selectedIsotope
 
           {/* Selected Isotope Point */}
           <circle cx={xScale(selectedIsotope.A)} cy={yScale(selectedIsotope.bePerNucleon)} r="5" className="fill-accent-blue stroke-white" strokeWidth="1" />
+          <text x={xScale(selectedIsotope.A)} y={yScale(selectedIsotope.bePerNucleon) - 10} textAnchor="middle" className="text-xs font-bold fill-accent-blue">{selectedIsotope.id}</text>
         </g>
       </svg>
     </div>
@@ -207,7 +209,7 @@ export const BindingEnergyPage: React.FC = () => {
 
                           {/* Chart and Explanation */}
                           <div>
-                              <BindingEnergyChart selectedIsotope={{ A: calculations.isotope.A, bePerNucleon: calculations.bePerNucleon }} />
+                              <BindingEnergyChart selectedIsotope={{ id: calculations.isotope.id, A: calculations.isotope.A, bePerNucleon: calculations.bePerNucleon }} />
                               <p className="text-xs text-lab-text-secondary mt-2 text-center">
                                   This chart shows that nuclei with intermediate mass numbers (around Iron-56) have the highest binding energy per nucleon, making them the most stable. Energy is released when light nuclei fuse (fusion) or heavy nuclei split (fission), as both processes move towards this stable peak.
                               </p>

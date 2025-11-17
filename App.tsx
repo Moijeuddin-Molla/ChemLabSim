@@ -12,8 +12,6 @@ import { DecayChainPage } from './pages/DecayChainPage';
 import { HalfLifePage } from './pages/HalfLifePage';
 import { ShieldingLabPage } from './pages/ShieldingLabPage';
 import { BindingEnergyPage } from './pages/BindingEnergyPage';
-import { FusionFissionPage } from './pages/FusionFissionPage';
-import { ApplicationsPage } from './pages/ApplicationsPage';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(View.HOME);
@@ -41,10 +39,6 @@ const App: React.FC = () => {
         return <ShieldingLabPage />;
       case View.BINDING_ENERGY_CALCULATOR:
         return <BindingEnergyPage />;
-      case View.FUSION_FISSION_COMPARISON:
-        return <FusionFissionPage />;
-      case View.REAL_WORLD_APPLICATIONS:
-        return <ApplicationsPage />;
       default:
         return <HomePage setCurrentView={setCurrentView} />;
     }

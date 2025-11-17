@@ -52,6 +52,20 @@
         .animate-glow {
           animation: glow 3s ease-in-out infinite;
         }
+        @keyframes particle-fly {
+          from { transform: translateX(20px); opacity: 1; }
+          to { transform: translateX(380px); opacity: 1; }
+        }
+        @keyframes particle-blocked {
+          from { transform: translateX(20px); opacity: 1; }
+          49.9% { opacity: 1; }
+          50% { transform: translateX(180px); opacity: 0; }
+          to { transform: translateX(180px); opacity: 0; }
+        }
+        @keyframes detector-hit {
+          0%, 100% { box-shadow: none; }
+          50% { box-shadow: 0 0 15px 5px #f6e05e; }
+        }
       }
     </style>
   <script type="importmap">
