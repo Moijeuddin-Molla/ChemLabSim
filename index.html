@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChemLabSim</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'lab-bg': '#1a202c',
+              'lab-bg-light': '#2d3748',
+              'lab-border': '#4a5568',
+              'lab-text': '#edf2f7',
+              'lab-text-secondary': '#a0aec0',
+              'accent-blue': '#4299e1',
+              'accent-green': '#48bb78',
+              'accent-yellow': '#f6e05e',
+              'accent-red': '#f56565',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['"Fira Code"', 'monospace'],
+            },
+            gridTemplateColumns: {
+              '18': 'repeat(18, minmax(0, 1fr))',
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-lab-bg text-lab-text font-sans;
+        }
+      }
+      @layer utilities {
+        @keyframes bubble {
+          0% { transform: translateY(0) scale(1); opacity: 1; }
+          100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 10px 5px rgba(239, 68, 68, 0.5); }
+          50% { box-shadow: 0 0 20px 10px rgba(239, 68, 68, 0.7); }
+        }
+        .animate-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
